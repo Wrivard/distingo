@@ -3,6 +3,7 @@ import { Link, useLocation } from 'wouter';
 import { Menu, X, Phone, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import logoImage from '@assets/Generated Image November 27, 2025 - 6_48PM 1_1764287491381.png';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,9 +35,12 @@ export default function Header() {
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <Link href="/">
-          <a className="text-2xl md:text-3xl font-serif font-bold text-primary hover:opacity-80 transition-opacity">
-            Distingo
-            <span className="text-secondary text-lg ml-1 block md:inline md:ml-2 font-sans font-normal tracking-widest uppercase text-xs md:text-sm">Resto Pub</span>
+          <a className="hover:opacity-80 transition-opacity block py-2">
+            <img 
+              src={logoImage} 
+              alt="Distingo Resto Pub" 
+              className="h-12 md:h-16 w-auto object-contain" 
+            />
           </a>
         </Link>
 
@@ -70,7 +74,7 @@ export default function Header() {
 
       {/* Mobile Nav */}
       {isOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-background border-b border-border animate-in slide-in-from-top-5">
+        <div className="md:hidden absolute top-full left-0 w-full bg-background border-b border-border animate-in slide-in-from-top-5 shadow-xl">
           <nav className="flex flex-col p-6 gap-4">
             {navLinks.map((link) => (
               <Link key={link.href} href={link.href}>

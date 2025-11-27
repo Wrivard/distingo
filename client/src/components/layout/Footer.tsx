@@ -1,14 +1,23 @@
 import { Link } from 'wouter';
 import { Facebook, Instagram, MapPin, Phone, Mail, Clock } from 'lucide-react';
+import logoImage from '@assets/Generated Image November 27, 2025 - 6_48PM 1_1764287491381.png';
 
 export default function Footer() {
   return (
-    <footer className="bg-primary text-primary-foreground pt-16 pb-8">
+    <footer className="bg-primary text-primary-foreground pt-16 pb-8 border-t border-primary-foreground/10">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Brand & Contact */}
           <div>
-            <h3 className="text-2xl font-serif font-bold mb-6">Distingo Resto Pub</h3>
+            <div className="mb-6">
+              <img 
+                src={logoImage} 
+                alt="Distingo Resto Pub" 
+                className="h-12 w-auto object-contain invert brightness-0" 
+                style={{ filter: 'brightness(0) saturate(100%) invert(96%) sepia(6%) saturate(288%) hue-rotate(346deg) brightness(98%) contrast(90%)' }}
+                // Attempting to color match F8F5E9 (off-white) via css filter, or just use brightness-0 invert for pure white
+              />
+            </div>
             <div className="space-y-4 text-primary-foreground/80">
               <p className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 mt-1 text-secondary" />
