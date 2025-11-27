@@ -1,0 +1,33 @@
+Project name: Distingo Resto Pub website
+
+Goal: Build a modern, clean, fancy bistro/pub website for “Distingo Resto Pub”. The site should reflect a cozy, upscale pub/bistro vibe, be responsive (mobile + desktop), and include all main pages (Home, About, Menu, Gallery, Contact / Reservations). Use a simple tech stack (Next.js + React + CSS modules or Tailwind CSS) — no heavy frameworks beyond that.
+
+Requirements:
+- Homepage: hero section with large hero image (pub interior or a signature dish), headline + subheadline tagline, call-to-action button (“See Menu” or “Book a Table”).
+- About page: short description of the restaurant, its concept, atmosphere, location (Montreal), what makes it special (craft cocktails, gourmet dishes, cozy ambience).
+- Menu page: display food & drinks categories (starters, mains, desserts, cocktails/beers/wines). Provide example entries (you can stub placeholder items — I’ll fill real menu later).
+- Gallery page: a grid gallery for photos (interior shots, dishes, drinks, ambiance) — responsive and optimized for desktop & mobile.
+- Contact / Reservations page: show address, opening hours, contact phone/email, embedded map (if possible), and a simple “Reservation request” form (name, email, phone/notes, number of people, date/time) that for now logs submission in console (or stub — backend not mandatory).  
+- Site-wide header & footer: header with navigation (Home, About, Menu, Gallery, Contact), footer with basic restaurant info (address, hours, social media placeholders).  
+- Responsive design: works well on desktop, tablet, and mobile screens; navigation should collapse to mobile menu on small screens.  
+- Clean, modern styling: neutral / warm-toned colour palette (e.g. dark slate / warm wood / soft amber accents), elegant but readable typography, enough white space, cozy pub-bistro atmosphere.  
+- Code structure & good practices: components should be modular (e.g. separate components for Header, Footer, MenuCard, GalleryGrid, etc.), optimize images (use modern image tags or lazy-load), routes set up correctly (e.g. `/`, `/about`, `/menu`, `/gallery`, `/contact`).  
+
+Optional / Nice-to-have:
+- Light CSS animations or hover effects on menu items or gallery images (subtle, not distracting).
+- Meta tags for SEO (title, description), responsive `<head>` setup.
+- A simple site manifest / basic SEO optimizations (e.g. proper HTML semantics, alt tags for images).  
+- Placeholder data in JSON or JS — easy to replace later with real content.  
+
+Deliverables:
+1. Full project directory with all files (pages, components, styles).  
+2. A README with instructions: how to run locally, how to build & deploy (on Replit or other host), how to replace placeholder content (menu, images, contact info).  
+3. Commented code where appropriate to help me understand and customize things.  
+
+Tone / Aesthetic: modern, elegant, cozy, inviting — conveys the vibe of an upscale bistro/pub where people feel comfortable, enjoy good food & drinks, and soak in a warm atmosphere.  
+
+---
+
+Please start by creating the project skeleton (with Next.js), setting up layout components (Header, Footer), and building the Homepage (hero section + navigation). Once homepage works, proceed to scaffold the other pages (About, Menu, Gallery, Contact) with placeholder content and styling. Show me where to replace placeholders (menu items, images, contact info) easily.  
+
+At each step, ensure the site runs (no build errors), is responsive, and renders correctly in browser.  
