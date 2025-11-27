@@ -5,7 +5,7 @@ import { ArrowRight, UtensilsCrossed, Wine, Music } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 // Import generated assets
-import heroImage from '@assets/generated_images/upscale_cozy_gastropub_interior_at_night.png';
+import heroImage from '@assets/60e3fd14-123e-4568-a2fa-a1001c9d094e_1764287212509.jfif';
 import dishImage from '@assets/generated_images/gourmet_steak_frites_dish.png';
 import drinkImage from '@assets/generated_images/signature_craft_cocktail_in_crystal_glass.png';
 
