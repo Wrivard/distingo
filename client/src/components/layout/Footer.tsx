@@ -1,5 +1,5 @@
 import { Facebook, Instagram, MapPin, Phone, Mail } from 'lucide-react';
-import logoImage from '@assets/Generated Image November 27, 2025 - 6_48PM 1_1764287491381.png';
+import logoImage from '@assets/Generated Image November 27, 2025 - 6_52PM_1764287600268.png';
 
 export default function Footer() {
   return (
@@ -12,8 +12,7 @@ export default function Footer() {
               <img 
                 src={logoImage} 
                 alt="Distingo Resto Pub" 
-                className="h-12 w-auto object-contain invert brightness-0" 
-                style={{ filter: 'brightness(0) saturate(100%) invert(96%) sepia(6%) saturate(288%) hue-rotate(346deg) brightness(98%) contrast(90%)' }}
+                className="h-12 w-auto object-contain" 
               />
             </div>
             <div className="space-y-4 text-primary-foreground/80">
