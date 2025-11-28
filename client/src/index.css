@@ -57,9 +57,9 @@
   --secondary: 0 0% 98%;
   --secondary-foreground: 93 26% 23%;
 
-  /* Muted Text - Cleaner Gray instead of yellow tint */
+  /* Muted Text - Higher contrast for better readability */
   --muted: 93 26% 23%;
-  --muted-foreground: 0 0% 65%; /* Neutral Gray */
+  --muted-foreground: 0 0% 85%; /* Much lighter gray for high contrast against black */
 
   --accent: 93 26% 23%;
   --accent-foreground: 0 0% 98%;
@@ -85,17 +85,17 @@
     @apply font-serif;
   }
   
-  /* Global Typography Scale */
+  /* Global Typography Scale - Even Bigger */
   h1 {
-    @apply text-5xl md:text-7xl font-bold leading-tight tracking-tight;
+    @apply text-6xl md:text-8xl font-bold leading-tight tracking-tighter mb-6;
   }
   h2 {
-    @apply text-4xl md:text-5xl font-bold leading-snug tracking-tight;
+    @apply text-5xl md:text-6xl font-bold leading-tight tracking-tight mb-4;
   }
   h3 {
-    @apply text-3xl font-semibold leading-snug;
+    @apply text-3xl md:text-4xl font-semibold leading-snug mb-3;
   }
   p {
-    @apply leading-relaxed text-muted-foreground;
+    @apply text-lg leading-relaxed text-muted-foreground;
   }
 }
