@@ -67,69 +67,80 @@ export default function Home() {
 
         {/* Content */}
         <motion.div
-          className="relative z-10 container mx-auto px-4 text-center max-w-5xl"
+          className="relative z-10 container mx-auto px-4 text-center max-w-6xl"
           style={{ opacity: heroOpacity }}
         >
+          {/* Badge */}
           <motion.div
             variants={fadeUp}
             initial="hidden"
             animate="visible"
             custom={0.2}
-            className="mb-8"
+            className="mb-10"
           >
-            <span className="inline-block px-6 py-2 bg-black/30 backdrop-blur-sm border border-white/30 rounded-full text-white text-sm tracking-[0.2em] uppercase font-medium shadow-lg">
+            <span className="inline-block px-8 py-3 bg-white/20 backdrop-blur-md border-2 border-white/40 rounded-full text-white text-xs sm:text-sm tracking-[0.3em] uppercase font-bold shadow-2xl">
               Sorel-Tracy • Depuis 2014
             </span>
           </motion.div>
 
+          {/* Main Title */}
           <motion.h1
             variants={fadeUp}
             initial="hidden"
             animate="visible"
             custom={0.4}
-            className="text-white mb-6 !text-7xl sm:!text-8xl md:!text-9xl lg:!text-[10rem] xl:!text-[12rem] !leading-[0.85] drop-shadow-2xl"
+            className="text-white mb-8 !text-8xl sm:!text-9xl md:!text-[10rem] lg:!text-[12rem] xl:!text-[14rem] !leading-[0.85] font-bold tracking-tight"
+            style={{
+              textShadow: '0 4px 20px rgba(0,0,0,0.9), 0 8px 40px rgba(0,0,0,0.7), 0 0 60px rgba(0,0,0,0.5)',
+              WebkitTextStroke: '1px rgba(255,255,255,0.1)'
+            }}
           >
             Distingo
           </motion.h1>
 
+          {/* Subtitle */}
           <motion.div
             variants={fadeUp}
             initial="hidden"
             animate="visible"
             custom={0.5}
-            className="mb-8"
+            className="mb-10"
           >
-            <p className="elegant-italic text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-light tracking-wide drop-shadow-lg">
-              Resto • Pub • Expérience
-            </p>
+            <div className="inline-block px-8 py-4 bg-black/40 backdrop-blur-md rounded-lg border border-white/20">
+              <p className="elegant-italic text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white font-light tracking-wider" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.8)' }}>
+                Resto • Pub • Expérience
+              </p>
+            </div>
           </motion.div>
 
+          {/* Description */}
           <motion.div
             variants={fadeUp}
             initial="hidden"
             animate="visible"
             custom={0.6}
-            className="max-w-3xl mx-auto mb-12"
+            className="max-w-3xl mx-auto mb-14"
           >
-            <p className="text-lg md:text-xl lg:text-2xl text-white/95 font-light leading-relaxed drop-shadow-lg">
+            <p className="text-xl md:text-2xl lg:text-3xl text-white font-light leading-relaxed px-4" style={{ textShadow: '0 2px 15px rgba(0,0,0,0.9), 0 4px 30px rgba(0,0,0,0.6)' }}>
               L'art de recevoir rencontre la gastronomie raffinée dans une atmosphère chaleureuse et authentique
             </p>
           </motion.div>
 
+          {/* CTAs */}
           <motion.div
             variants={fadeUp}
             initial="hidden"
             animate="visible"
             custom={0.8}
-            className="flex flex-col sm:flex-row gap-5 justify-center items-center"
+            className="flex flex-col sm:flex-row gap-6 justify-center items-center"
           >
             <Link href="/contact">
-              <Button size="lg" className="bg-gold hover:bg-gold/90 text-background min-w-[220px] text-base h-14 font-semibold tracking-wide transition-all duration-300 hover:scale-[1.05] shadow-xl">
+              <Button size="lg" className="bg-white text-background hover:bg-white/90 min-w-[240px] text-lg h-16 font-bold tracking-wide transition-all duration-300 hover:scale-[1.08] shadow-2xl border-2 border-white">
                 Réserver une Table
               </Button>
             </Link>
             <Link href="/menu">
-              <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-md border-2 border-white/50 text-white hover:bg-white hover:text-background min-w-[220px] text-base h-14 font-semibold tracking-wide transition-all duration-300 hover:scale-[1.05] shadow-lg">
+              <Button size="lg" variant="outline" className="bg-black/40 backdrop-blur-md border-3 border-white text-white hover:bg-white hover:text-background min-w-[240px] text-lg h-16 font-bold tracking-wide transition-all duration-300 hover:scale-[1.08] shadow-2xl">
                 Découvrir le Menu
               </Button>
             </Link>
