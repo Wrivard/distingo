@@ -23,7 +23,7 @@ export default function Gallery() {
     <Layout>
       <div className="bg-background min-h-screen pb-24">
         {/* Header */}
-        <div className="bg-primary py-24 md:py-32 text-center overflow-hidden">
+        <div className="bg-primary/0 py-24 md:py-32 text-center overflow-hidden">
           <div className="container mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: 30 }}

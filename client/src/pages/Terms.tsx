@@ -3,7 +3,7 @@ import Layout from '@/components/layout/Layout';
 export default function Terms() {
   return (
     <Layout>
-      <div className="bg-primary py-20 text-center">
+      <div className="bg-primary/0 py-20 text-center">
         <div className="container mx-auto px-4">
           <h1 className="text-primary-foreground">Conditions d'Utilisation</h1>
         </div>

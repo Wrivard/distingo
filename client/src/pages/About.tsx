@@ -13,7 +13,7 @@ export default function About() {
   return (
     <Layout>
       {/* Header */}
-      <div className="bg-primary py-24 md:py-32 text-center overflow-hidden">
+      <div className="bg-primary/0 py-24 md:py-32 text-center overflow-hidden">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -205,7 +205,7 @@ export default function About() {
       </div>
 
       {/* Team Section */}
-      <div className="bg-primary py-20 md:py-28 overflow-hidden">
+      <div className="bg-primary/0 py-20 md:py-28 overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <motion.p

@@ -14,7 +14,7 @@ export default function GiftCards() {
 
   return (
     <Layout>
-      <div className="bg-primary py-24 md:py-32 text-center">
+      <div className="bg-primary/0 py-24 md:py-32 text-center">
         <div className="container mx-auto px-4">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <div className="bg-accent/20 p-6 rounded-full border-2 border-accent/30 inline-block mb-6">
