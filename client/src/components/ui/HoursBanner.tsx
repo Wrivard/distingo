@@ -63,7 +63,7 @@ export default function HoursBanner() {
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: -100, opacity: 0 }}
         transition={{ duration: 0.4 }}
-        className="bg-primary border-b border-border/20 py-2 relative z-[60]"
+        className="bg-primary border-b border-border/20 py-2"
       >
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between gap-4">

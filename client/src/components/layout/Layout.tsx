@@ -9,9 +9,11 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground font-sans">
-      <HoursBanner />
-      <Header />
-      <main className="flex-grow pt-0">
+      <div className="fixed top-0 left-0 right-0 z-[60]">
+        <HoursBanner />
+        <Header />
+      </div>
+      <main className="flex-grow pt-[122px]">
         {children}
       </main>
       <Footer />
