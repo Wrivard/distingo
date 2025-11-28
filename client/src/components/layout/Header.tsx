@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'wouter';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -7,7 +7,16 @@ import logoImage from '@assets/5d0e99f4-6e57-4f5e-9918-c71c7cae7098.jfif_1764287
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [location] = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navLinks = [
     { href: '/', label: 'Accueil' },
@@ -19,10 +28,15 @@ export default function Header() {
   ];
 
   return (
-    <header className="w-full bg-primary border-b border-white/10 py-4">
+    <header
+      className={cn(
+        "fixed top-0 w-full z-50 transition-all duration-300 border-b border-transparent",
+        scrolled ? "bg-background/95 backdrop-blur-md shadow-lg py-3 border-border/30" : "bg-transparent py-5"
+      )}
+    >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <Link href="/">
-          <a className="hover:opacity-80 transition-opacity">
+          <a className="hover:opacity-80 transition-opacity block py-2">
             <img
               src={logoImage}
               alt="Distingo Resto Pub"
@@ -32,14 +46,18 @@ export default function Header() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => (
             <Link key={link.href} href={link.href}>
               <a className={cn(
-                "text-sm font-medium tracking-wide transition-colors uppercase",
-                location === link.href
-                  ? "text-gold"
-                  : "text-white/90 hover:text-gold"
+                "text-sm font-medium tracking-[0.1em] transition-all duration-300 uppercase",
+                scrolled
+                  ? location === link.href
+                    ? "text-accent hover:text-accent/80"
+                    : "text-foreground/80 hover:text-accent"
+                  : location === link.href
+                    ? "text-white hover:text-white/80"
+                    : "text-white/90 hover:text-white"
               )}>
                 {link.label}
               </a>
@@ -48,7 +66,12 @@ export default function Header() {
           <Link href="/contact">
             <Button
               size="sm"
-              className="font-medium tracking-wide ml-2 px-6 bg-gold hover:bg-gold/90 text-background"
+              className={cn(
+                "font-medium tracking-wide ml-2 px-6 transition-all duration-300",
+                scrolled
+                  ? "bg-accent hover:bg-accent/90 text-accent-foreground"
+                  : "bg-transparent border-2 border-white text-white hover:bg-white hover:text-background"
+              )}
             >
               Réserver
             </Button>
@@ -57,9 +80,11 @@ export default function Header() {
 
         {/* Mobile Menu Toggle */}
         <button
-          className="md:hidden p-2 text-white transition-colors"
+          className={cn(
+            "md:hidden p-2 transition-colors duration-300",
+            scrolled ? "text-foreground" : "text-white"
+          )}
           onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle menu"
         >
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
@@ -67,14 +92,14 @@ export default function Header() {
 
       {/* Mobile Nav */}
       {isOpen && (
-        <div className="md:hidden absolute left-0 w-full bg-background border-b border-border shadow-xl z-50">
-          <nav className="flex flex-col p-6 gap-4">
+        <div className="md:hidden absolute top-full left-0 w-full bg-background border-b border-border animate-in slide-in-from-top-5 shadow-xl">
+          <nav className="flex flex-col p-8 gap-6">
             {navLinks.map((link) => (
               <Link key={link.href} href={link.href}>
                 <a
                   className={cn(
-                    "text-lg font-medium transition-colors",
-                    location === link.href ? "text-gold" : "text-foreground hover:text-gold"
+                    "text-xl font-serif transition-colors hover:text-accent",
+                    location === link.href ? "text-accent" : "text-foreground"
                   )}
                   onClick={() => setIsOpen(false)}
                 >
@@ -83,10 +108,7 @@ export default function Header() {
               </Link>
             ))}
             <Link href="/contact">
-              <Button
-                className="w-full bg-gold hover:bg-gold/90 text-background h-11 text-base font-medium"
-                onClick={() => setIsOpen(false)}
-              >
+              <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground h-12 text-lg font-medium">
                 Réserver
               </Button>
             </Link>
