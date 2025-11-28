@@ -22,7 +22,7 @@ const upcomingEvents: Event[] = [
   {
     id: '1',
     title: 'Soirée Jazz Live',
-    date: new Date(2025, 11, 15), // December 15, 2025
+    date: new Date(2014, 11, 15), // December 15, 2014
     time: '20h00',
     description: 'Profitez d\'une soirée intimiste avec notre trio de jazz résident. Musique live, cocktails signature et ambiance feutrée.',
     location: 'Salle principale',
@@ -32,7 +32,7 @@ const upcomingEvents: Event[] = [
   {
     id: '2',
     title: 'Dégustation de Vins',
-    date: new Date(2025, 11, 22), // December 22, 2025
+    date: new Date(2014, 11, 22), // December 22, 2014
     time: '19h00',
     description: 'Découvrez notre sélection de vins du terroir québécois accompagnés de fromages artisanaux et charcuteries fines.',
     location: 'Bar à vin',
@@ -42,7 +42,7 @@ const upcomingEvents: Event[] = [
   {
     id: '3',
     title: 'Réveillon du Nouvel An',
-    date: new Date(2025, 11, 31), // December 31, 2025
+    date: new Date(2014, 11, 31), // December 31, 2014
     time: '21h00',
     description: 'Célébrez la nouvelle année avec un menu 5 services, champagne à minuit et DJ jusqu\'à 2h du matin.',
     location: 'Restaurant complet',

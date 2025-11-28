@@ -18,12 +18,12 @@ export default function Footer() {
               />
             </div>
             <p className="text-primary-foreground/60 text-sm mb-6">
-              Restaurant bistro élégant au cœur de Montréal.
+              Restaurant bistro élégant au cœur de Sorel-Tracy.
             </p>
             <div className="space-y-2">
               <p className="flex items-center gap-2 text-sm text-primary-foreground/70">
                 <MapPin className="w-4 h-4 text-gold flex-shrink-0" />
-                <span>1234 Rue Saint-Denis, Montréal, QC</span>
+                <span>1234 Rue Saint-Denis, Sorel-Tracy, QC</span>
               </p>
               <p className="flex items-center gap-2 text-sm">
                 <Phone className="w-4 h-4 text-gold flex-shrink-0" />

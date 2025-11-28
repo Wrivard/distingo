@@ -24,7 +24,7 @@ const formSchema = z.object({
 });
 
 const contactInfo = [
-  { icon: MapPin, title: "Adresse", content: "1234 Rue Saint-Denis, Montréal, QC H2X 3K4" },
+  { icon: MapPin, title: "Adresse", content: "1234 Rue Saint-Denis, Sorel-Tracy, QC H2X 3K4" },
   { icon: Phone, title: "Téléphone", content: "(514) 555-0123", href: "tel:+15145550123" },
   { icon: Mail, title: "Courriel", content: "info@distingo.com", href: "mailto:info@distingo.com" },
 ];

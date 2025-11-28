@@ -78,7 +78,7 @@ export default function Home() {
             className="mb-8"
           >
             <span className="inline-block px-6 py-2 bg-white/5 backdrop-blur-sm border border-white/20 rounded-full text-cream/90 text-sm tracking-[0.2em] uppercase font-medium">
-              Montréal • Depuis 2025
+              Sorel-Tracy • Depuis 2014
             </span>
           </motion.div>
 
@@ -212,7 +212,7 @@ export default function Home() {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="text-xl md:text-2xl leading-relaxed"
               >
-                Situé au cœur de Montréal, Distingo offre un sanctuaire loin de l'agitation urbaine. Nous croyons au pouvoir de la bonne cuisine et de la bonne compagnie.
+                Situé au cœur de Sorel-Tracy, Distingo offre un sanctuaire loin de l'agitation urbaine. Nous croyons au pouvoir de la bonne cuisine et de la bonne compagnie.
               </motion.p>
               
               <motion.p 

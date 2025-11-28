@@ -26,7 +26,7 @@ export default function About() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="eyebrow text-gold mb-4"
             >
-              Depuis 2025
+              Depuis 2014
             </motion.p>
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
@@ -101,7 +101,7 @@ export default function About() {
               transition={{ duration: 0.8, delay: 0.5 }}
               className="text-lg leading-relaxed text-muted-foreground"
             >
-              Situé dans le cœur vibrant de Montréal, notre établissement reflète la double nature de la ville — sophistiquée mais accessible, classique mais moderne.
+              Situé dans le cœur vibrant de Sorel-Tracy, notre établissement reflète la double nature de la ville — sophistiquée mais accessible, classique mais moderne.
             </motion.p>
           </motion.div>
           
