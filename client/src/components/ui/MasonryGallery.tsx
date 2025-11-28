@@ -12,23 +12,28 @@ const premiumEase = [0.25, 0.4, 0.25, 1];
 type GalleryImage = {
   src: string;
   alt: string;
-  tall?: boolean; // For masonry effect
-  wide?: boolean; // Spans 2 columns
+  height?: 'short' | 'medium' | 'tall'; // For varied heights
 };
 
 const galleryImages: GalleryImage[] = [
-  { src: img1, alt: 'Ambiance Intérieure', tall: false, wide: false },
-  { src: img2, alt: 'Plat Signature', tall: true, wide: false },
-  { src: img3, alt: 'Cocktail Artisanal', tall: false, wide: false },
-  { src: img4, alt: 'Détail de Table', tall: true, wide: false },
-  { src: img1, alt: 'Bar', tall: false, wide: true },
-  { src: img3, alt: 'Cuisine', tall: false, wide: false },
-  { src: img2, alt: 'Détail Culinaire', tall: true, wide: false },
-  { src: img4, alt: 'Ambiance', tall: false, wide: false },
+  { src: img1, alt: 'Ambiance Intérieure', height: 'medium' },
+  { src: img2, alt: 'Plat Signature', height: 'tall' },
+  { src: img3, alt: 'Cocktail Artisanal', height: 'short' },
+  { src: img4, alt: 'Détail de Table', height: 'medium' },
+  { src: img1, alt: 'Bar', height: 'tall' },
+  { src: img3, alt: 'Cuisine', height: 'short' },
+  { src: img2, alt: 'Détail Culinaire', height: 'medium' },
+  { src: img4, alt: 'Ambiance', height: 'short' },
 ];
 
 function GalleryItem({ image, index }: { image: GalleryImage; index: number }) {
   const [isHovered, setIsHovered] = useState(false);
+
+  const heightClasses = {
+    short: 'h-[200px] md:h-[240px]',
+    medium: 'h-[280px] md:h-[320px]',
+    tall: 'h-[360px] md:h-[420px]'
+  };
 
   return (
     <motion.div
@@ -42,10 +47,8 @@ function GalleryItem({ image, index }: { image: GalleryImage; index: number }) {
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={`relative overflow-hidden rounded-sm group cursor-pointer ${
-        image.tall ? 'row-span-2' : 'row-span-1'
-      } ${
-        image.wide ? 'col-span-2' : 'col-span-1'
+      className={`relative overflow-hidden rounded-sm group cursor-pointer mb-2 md:mb-3 break-inside-avoid ${
+        heightClasses[image.height || 'medium']
       }`}
     >
       {/* Image */}
@@ -127,7 +130,7 @@ export default function MasonryGallery() {
         </div>
 
         {/* Masonry Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-3 auto-rows-[180px] md:auto-rows-[220px]">
+        <div className="columns-2 md:columns-3 lg:columns-4 gap-2 md:gap-3">
           {galleryImages.map((image, index) => (
             <GalleryItem key={index} image={image} index={index} />
           ))}
