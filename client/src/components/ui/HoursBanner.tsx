@@ -63,7 +63,7 @@ export default function HoursBanner() {
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: -100, opacity: 0 }}
         transition={{ duration: 0.4 }}
-        className="bg-primary border-b border-border/20 py-2 relative z-40"
+        className="bg-primary border-b border-border/20 py-2 relative z-[60]"
       >
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between gap-4">
@@ -72,7 +72,7 @@ export default function HoursBanner() {
               <div className="flex items-center gap-2">
                 <div className={`w-2 h-2 rounded-full ${open ? 'bg-green-500 animate-pulse' : 'bg-red-500'}`} />
                 <span className={`text-sm font-medium ${open ? 'text-green-400' : 'text-red-400'}`}>
-                  {open ? 'Ouvert' : 'Fermé'}
+                  {open ? 'Ouvert' : 'Fermï¿½'}
                 </span>
               </div>
 
@@ -98,7 +98,7 @@ export default function HoursBanner() {
             <button
               onClick={() => setIsVisible(false)}
               className="text-primary-foreground/50 hover:text-primary-foreground transition-colors p-1"
-              aria-label="Fermer la bannière"
+              aria-label="Fermer la banniï¿½re"
             >
               <X className="w-4 h-4" />
             </button>
