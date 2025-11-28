@@ -6,6 +6,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import MasonryGallery from '@/components/ui/MasonryGallery';
 import Testimonials from '@/components/ui/Testimonials';
+import SEO from '@/components/SEO';
 
 // Import generated assets
 import heroImage from '@assets/60e3fd14-123e-4568-a2fa-a1001c9d094e_1764287212509.jfif';
@@ -47,6 +48,7 @@ export default function Home() {
 
   return (
     <Layout>
+      <SEO />
       {/* Hero Section */}
       <section ref={heroRef} className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
         {/* Background Image with Parallax */}
