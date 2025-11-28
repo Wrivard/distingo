@@ -50,23 +50,40 @@ export default function Header() {
           {navLinks.map((link) => (
             <Link key={link.href} href={link.href}>
               <a className={cn(
-                "text-sm font-medium tracking-[0.1em] transition-colors hover:text-gold uppercase",
-                location === link.href ? "text-gold" : "text-foreground/80"
+                "text-sm font-medium tracking-[0.1em] transition-all duration-300 uppercase",
+                scrolled
+                  ? location === link.href
+                    ? "text-accent hover:text-accent/80"
+                    : "text-foreground/80 hover:text-accent"
+                  : location === link.href
+                    ? "text-white hover:text-white/80"
+                    : "text-white/90 hover:text-white"
               )}>
                 {link.label}
               </a>
             </Link>
           ))}
           <Link href="/contact">
-            <Button size="sm" className="bg-accent hover:bg-accent/90 text-accent-foreground font-medium tracking-wide ml-2 px-6">
+            <Button
+              size="sm"
+              className={cn(
+                "font-medium tracking-wide ml-2 px-6 transition-all duration-300",
+                scrolled
+                  ? "bg-accent hover:bg-accent/90 text-accent-foreground"
+                  : "bg-transparent border-2 border-white text-white hover:bg-white hover:text-background"
+              )}
+            >
               Réserver
             </Button>
           </Link>
         </nav>
 
         {/* Mobile Menu Toggle */}
-        <button 
-          className="md:hidden text-foreground p-2"
+        <button
+          className={cn(
+            "md:hidden p-2 transition-colors duration-300",
+            scrolled ? "text-foreground" : "text-white"
+          )}
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X size={28} /> : <Menu size={28} />}
@@ -79,10 +96,10 @@ export default function Header() {
           <nav className="flex flex-col p-8 gap-6">
             {navLinks.map((link) => (
               <Link key={link.href} href={link.href}>
-                <a 
+                <a
                   className={cn(
-                    "text-xl font-serif transition-colors hover:text-gold",
-                    location === link.href ? "text-gold" : "text-foreground"
+                    "text-xl font-serif transition-colors hover:text-accent",
+                    location === link.href ? "text-accent" : "text-foreground"
                   )}
                   onClick={() => setIsOpen(false)}
                 >
