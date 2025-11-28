@@ -123,7 +123,7 @@ export default function MasonryGallery() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-foreground !text-4xl sm:!text-5xl md:!text-6xl lg:!text-6xl xl:!text-7xl"
+            className="text-foreground !text-5xl sm:!text-6xl md:!text-7xl lg:!text-8xl xl:!text-9xl"
           >
             Notre <span className="elegant-italic text-gold">Univers</span>
           </motion.h2>
