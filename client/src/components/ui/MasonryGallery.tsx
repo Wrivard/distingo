@@ -13,15 +13,18 @@ type GalleryImage = {
   src: string;
   alt: string;
   tall?: boolean; // For masonry effect
+  wide?: boolean; // Spans 2 columns
 };
 
 const galleryImages: GalleryImage[] = [
-  { src: img1, alt: 'Ambiance Intérieure', tall: true },
-  { src: img2, alt: 'Plat Signature' },
-  { src: img3, alt: 'Cocktail Artisanal' },
-  { src: img4, alt: 'Détail de Table' },
-  { src: img3, alt: 'Bar' },
-  { src: img2, alt: 'Cuisine' },
+  { src: img1, alt: 'Ambiance Intérieure', tall: false, wide: false },
+  { src: img2, alt: 'Plat Signature', tall: true, wide: false },
+  { src: img3, alt: 'Cocktail Artisanal', tall: false, wide: false },
+  { src: img4, alt: 'Détail de Table', tall: true, wide: false },
+  { src: img1, alt: 'Bar', tall: false, wide: true },
+  { src: img3, alt: 'Cuisine', tall: false, wide: false },
+  { src: img2, alt: 'Détail Culinaire', tall: true, wide: false },
+  { src: img4, alt: 'Ambiance', tall: false, wide: false },
 ];
 
 function GalleryItem({ image, index }: { image: GalleryImage; index: number }) {
@@ -41,6 +44,8 @@ function GalleryItem({ image, index }: { image: GalleryImage; index: number }) {
       onMouseLeave={() => setIsHovered(false)}
       className={`relative overflow-hidden rounded-sm group cursor-pointer ${
         image.tall ? 'row-span-2' : 'row-span-1'
+      } ${
+        image.wide ? 'col-span-2' : 'col-span-1'
       }`}
     >
       {/* Image */}
@@ -122,7 +127,7 @@ export default function MasonryGallery() {
         </div>
 
         {/* Masonry Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 auto-rows-[200px] md:auto-rows-[240px]">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-3 auto-rows-[180px] md:auto-rows-[220px]">
           {galleryImages.map((image, index) => (
             <GalleryItem key={index} image={image} index={index} />
           ))}
