@@ -28,48 +28,50 @@
   --radius-md: calc(var(--radius));
   --radius-lg: calc(var(--radius) + 2px);
 
-  --font-sans: 'Inter', sans-serif;
-  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Outfit', system-ui, sans-serif;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
 }
 
 :root {
   /* 
-    Clean Visual Hierarchy:
-    Black: #1b1b1b -> 0 0% 11%
-    Clean White: #FAFAFA -> 0 0% 98% (Replaces Yellowish White)
-    New Accent: #3A4B2C -> 93 26% 23%
+    Refined Color Palette:
+    Deep Charcoal: #141414 -> 0 0% 8%
+    Warm Cream: #F5F0E8 -> 36 33% 94%
+    Forest Green Accent: #3A4B2C -> 93 26% 23%
+    Warm Gold: #C9A962 -> 43 47% 59%
   */
 
-  --background: 0 0% 11%;
-  --foreground: 0 0% 98%; /* Clean White */
+  --background: 0 0% 8%;
+  --foreground: 36 33% 94%;
 
-  --card: 0 0% 11%;
-  --card-foreground: 0 0% 98%;
+  --card: 0 0% 10%;
+  --card-foreground: 36 33% 94%;
 
-  --popover: 0 0% 11%;
-  --popover-foreground: 0 0% 98%;
+  --popover: 0 0% 10%;
+  --popover-foreground: 36 33% 94%;
 
-  /* Primary Backgrounds use the Green Accent */
+  /* Primary - Forest Green */
   --primary: 93 26% 23%;
-  --primary-foreground: 0 0% 98%;
+  --primary-foreground: 36 33% 94%;
 
-  /* Secondary/Buttons - High Contrast */
-  --secondary: 0 0% 98%;
-  --secondary-foreground: 93 26% 23%;
+  /* Secondary - Warm Cream (for buttons) */
+  --secondary: 36 33% 94%;
+  --secondary-foreground: 0 0% 8%;
 
-  /* Muted Text - Higher contrast for better readability */
-  --muted: 93 26% 23%;
-  --muted-foreground: 0 0% 85%; /* Much lighter gray for high contrast against black */
+  /* Muted - For subtle backgrounds */
+  --muted: 0 0% 15%;
+  --muted-foreground: 36 20% 75%;
 
-  --accent: 93 26% 23%;
-  --accent-foreground: 0 0% 98%;
+  /* Accent - Warm Gold */
+  --accent: 43 47% 59%;
+  --accent-foreground: 0 0% 8%;
 
   --destructive: 0 62% 30%;
-  --destructive-foreground: 0 0% 98%;
+  --destructive-foreground: 36 33% 94%;
 
-  --border: 93 26% 23%;
-  --input: 93 26% 23%;
-  --ring: 0 0% 98%;
+  --border: 0 0% 20%;
+  --input: 0 0% 18%;
+  --ring: 43 47% 59%;
 
   --radius: 0.25rem;
 }
@@ -80,22 +82,104 @@
   }
   body {
     @apply font-sans antialiased bg-background text-foreground;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-serif;
+    font-weight: 400;
+    letter-spacing: 0.01em;
   }
   
-  /* Global Typography Scale - Even Bigger */
+  /* ===== TYPOGRAPHY SYSTEM ===== */
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif text-foreground;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+  
+  /* Hero / Page Titles */
   h1 {
-    @apply text-6xl md:text-8xl font-bold leading-tight tracking-tighter mb-6;
+    @apply text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-[0.9] tracking-tighter mb-8;
+    font-weight: 500;
   }
+  
+  /* Section Headings */
   h2 {
-    @apply text-5xl md:text-6xl font-bold leading-tight tracking-tight mb-4;
+    @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[0.95] tracking-tight mb-6;
+    font-weight: 500;
   }
+  
+  /* Subsection / Card Headings */
   h3 {
-    @apply text-3xl md:text-4xl font-semibold leading-snug mb-3;
+    @apply text-2xl sm:text-3xl md:text-4xl leading-snug mb-4;
+    font-weight: 600;
   }
+  
+  /* Small Headings */
+  h4 {
+    @apply text-xl sm:text-2xl leading-snug mb-3;
+    font-weight: 600;
+  }
+  
+  /* Body Text - High Contrast */
   p {
-    @apply text-lg leading-relaxed text-muted-foreground;
+    @apply text-lg md:text-xl leading-relaxed;
+    color: hsl(36 20% 75%);
   }
+  
+  /* Lead / Intro Text */
+  .lead {
+    @apply text-xl md:text-2xl leading-relaxed font-light;
+    color: hsl(36 33% 85%);
+  }
+  
+  /* Small / Caption Text */
+  .text-caption {
+    @apply text-sm tracking-wide uppercase;
+    color: hsl(43 47% 59%);
+    font-weight: 500;
+    letter-spacing: 0.15em;
+  }
+  
+  /* Eyebrow / Label Text */
+  .eyebrow {
+    @apply text-xs sm:text-sm tracking-[0.2em] uppercase font-sans font-medium mb-4;
+    color: hsl(43 47% 59%);
+  }
+  
+  /* Links */
+  a {
+    @apply transition-colors;
+  }
+}
+
+/* ===== CUSTOM UTILITY CLASSES ===== */
+
+/* Gold accent text */
+.text-gold {
+  color: hsl(43 47% 59%);
+}
+
+/* Warm cream text for high contrast */
+.text-cream {
+  color: hsl(36 33% 94%);
+}
+
+/* Italic serif for elegant touches */
+.elegant-italic {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Section divider with gold accent */
+.divider-gold {
+  @apply w-24 h-0.5 mx-auto my-8;
+  background: linear-gradient(90deg, transparent, hsl(43 47% 59%), transparent);
+}
+
+/* Card hover effect */
+.card-hover {
+  @apply transition-all duration-300;
+}
+.card-hover:hover {
+  @apply -translate-y-1;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
 }
