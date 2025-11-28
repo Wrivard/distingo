@@ -4,6 +4,7 @@ import { Link } from 'wouter';
 import { ArrowRight, UtensilsCrossed, Wine, Music } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
+import MasonryGallery from '@/components/ui/MasonryGallery';
 
 // Import generated assets
 import heroImage from '@assets/60e3fd14-123e-4568-a2fa-a1001c9d094e_1764287212509.jfif';
@@ -292,6 +293,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Masonry Gallery */}
+      <MasonryGallery />
 
       {/* Featured Image / CTA */}
       <section className="relative h-[60vh] min-h-[500px] overflow-hidden flex items-center justify-center">
