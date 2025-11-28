@@ -74,8 +74,12 @@ async function initializeApp() {
     throw err;
   });
 
-  // In production (Vercel), serve static files
-  serveStatic(app);
+  // In production (Vercel), serve static files if they exist
+  try {
+    serveStatic(app);
+  } catch (error) {
+    console.log("Static files not found, skipping static file serving");
+  }
 
   isInitialized = true;
   return app;
