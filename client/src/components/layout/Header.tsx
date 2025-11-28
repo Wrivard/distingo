@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link, useLocation } from 'wouter';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -7,16 +7,7 @@ import logoImage from '@assets/5d0e99f4-6e57-4f5e-9918-c71c7cae7098.jfif_1764287
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [location] = useLocation();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const navLinks = [
     { href: '/', label: 'Accueil' },
@@ -29,10 +20,7 @@ export default function Header() {
 
   return (
     <header
-      className={cn(
-        "w-full transition-all duration-300 border-b border-transparent",
-        scrolled ? "bg-background/95 backdrop-blur-md shadow-lg py-3 border-border/30" : "bg-transparent py-5"
-      )}
+      className="w-full bg-primary border-b border-white/10 py-4"
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <Link href="/">
@@ -50,14 +38,10 @@ export default function Header() {
           {navLinks.map((link) => (
             <Link key={link.href} href={link.href}>
               <a className={cn(
-                "text-sm font-medium tracking-[0.1em] transition-all duration-300 uppercase",
-                scrolled
-                  ? location === link.href
-                    ? "text-accent hover:text-accent/80"
-                    : "text-foreground/80 hover:text-accent"
-                  : location === link.href
-                    ? "text-white hover:text-white/80"
-                    : "text-white/90 hover:text-white"
+                "text-sm font-medium tracking-[0.1em] transition-colors uppercase",
+                location === link.href
+                  ? "text-gold hover:text-gold/80"
+                  : "text-white/90 hover:text-gold"
               )}>
                 {link.label}
               </a>
@@ -66,12 +50,7 @@ export default function Header() {
           <Link href="/contact">
             <Button
               size="sm"
-              className={cn(
-                "font-medium tracking-wide ml-2 px-6 transition-all duration-300",
-                scrolled
-                  ? "bg-accent hover:bg-accent/90 text-accent-foreground"
-                  : "bg-transparent border-2 border-white text-white hover:bg-white hover:text-background"
-              )}
+              className="font-medium tracking-wide ml-2 px-6 bg-gold hover:bg-gold/90 text-background"
             >
               Réserver
             </Button>
@@ -80,10 +59,7 @@ export default function Header() {
 
         {/* Mobile Menu Toggle */}
         <button
-          className={cn(
-            "md:hidden p-2 transition-colors duration-300",
-            scrolled ? "text-foreground" : "text-white"
-          )}
+          className="md:hidden p-2 text-white transition-colors"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X size={28} /> : <Menu size={28} />}
