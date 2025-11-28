@@ -12,6 +12,10 @@ import Menu from "@/pages/Menu";
 import Gallery from "@/pages/Gallery";
 import Contact from "@/pages/Contact";
 import Events from "@/pages/Events";
+import GiftCards from "@/pages/GiftCards";
+import PrivateEvents from "@/pages/PrivateEvents";
+import Privacy from "@/pages/Privacy";
+import Terms from "@/pages/Terms";
 
 function Router() {
   return (
@@ -22,6 +26,10 @@ function Router() {
       <Route path="/events" component={Events} />
       <Route path="/gallery" component={Gallery} />
       <Route path="/contact" component={Contact} />
+      <Route path="/gift-cards" component={GiftCards} />
+      <Route path="/private-events" component={PrivateEvents} />
+      <Route path="/privacy" component={Privacy} />
+      <Route path="/terms" component={Terms} />
       <Route component={NotFound} />
     </Switch>
   );
