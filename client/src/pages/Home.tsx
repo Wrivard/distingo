@@ -56,13 +56,13 @@ export default function Home() {
           className="absolute inset-0 z-0"
           style={{ y: heroY }}
         >
-          <img 
-            src={heroImage} 
-            alt="Distingo Interior" 
+          <img
+            src={heroImage}
+            alt="Distingo Interior"
             className="w-full h-[120%] object-cover"
           />
-          <div className="absolute inset-0 bg-black/50" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-background" />
+          <div className="absolute inset-0 bg-black/60" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-background" />
         </motion.div>
 
         {/* Content */}
@@ -77,7 +77,7 @@ export default function Home() {
             custom={0.2}
             className="mb-8"
           >
-            <span className="inline-block px-6 py-2 bg-white/5 backdrop-blur-sm border border-white/20 rounded-full text-cream/90 text-sm tracking-[0.2em] uppercase font-medium">
+            <span className="inline-block px-6 py-2 bg-black/30 backdrop-blur-sm border border-white/30 rounded-full text-white text-sm tracking-[0.2em] uppercase font-medium shadow-lg">
               Sorel-Tracy • Depuis 2014
             </span>
           </motion.div>
@@ -87,7 +87,7 @@ export default function Home() {
             initial="hidden"
             animate="visible"
             custom={0.4}
-            className="text-cream mb-6 !text-7xl sm:!text-8xl md:!text-9xl lg:!text-[10rem] xl:!text-[12rem] !leading-[0.85]"
+            className="text-white mb-6 !text-7xl sm:!text-8xl md:!text-9xl lg:!text-[10rem] xl:!text-[12rem] !leading-[0.85] drop-shadow-2xl"
           >
             Distingo
           </motion.h1>
@@ -99,7 +99,7 @@ export default function Home() {
             custom={0.5}
             className="mb-8"
           >
-            <p className="elegant-italic text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-gold/90 font-light tracking-wide">
+            <p className="elegant-italic text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-light tracking-wide drop-shadow-lg">
               Resto • Pub • Expérience
             </p>
           </motion.div>
@@ -111,7 +111,7 @@ export default function Home() {
             custom={0.6}
             className="max-w-3xl mx-auto mb-12"
           >
-            <p className="text-lg md:text-xl lg:text-2xl text-cream/90 font-light leading-relaxed">
+            <p className="text-lg md:text-xl lg:text-2xl text-white/95 font-light leading-relaxed drop-shadow-lg">
               L'art de recevoir rencontre la gastronomie raffinée dans une atmosphère chaleureuse et authentique
             </p>
           </motion.div>
@@ -129,7 +129,7 @@ export default function Home() {
               </Button>
             </Link>
             <Link href="/menu">
-              <Button size="lg" variant="outline" className="bg-white/5 backdrop-blur-sm border-2 border-white/40 text-cream hover:bg-white hover:text-background min-w-[220px] text-base h-14 font-semibold tracking-wide transition-all duration-300 hover:scale-[1.05]">
+              <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-md border-2 border-white/50 text-white hover:bg-white hover:text-background min-w-[220px] text-base h-14 font-semibold tracking-wide transition-all duration-300 hover:scale-[1.05] shadow-lg">
                 Découvrir le Menu
               </Button>
             </Link>

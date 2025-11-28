@@ -6,14 +6,14 @@ const premiumEase = [0.25, 0.4, 0.25, 1];
 const testimonials = [
   {
     name: "Marie-Claude Dubois",
-    role: "Cliente Régulière",
-    content: "Une expérience inoubliable à chaque visite. Le steak frites est tout simplement exceptionnel, et l'ambiance chaleureuse nous fait sentir comme à la maison.",
+    role: "Cliente RÃ©guliÃ¨re",
+    content: "Une expÃ©rience inoubliable Ã  chaque visite. Le steak frites est tout simplement exceptionnel, et l'ambiance chaleureuse nous fait sentir comme Ã  la maison.",
     rating: 5
   },
   {
     name: "Thomas Bergeron",
     role: "Critique Culinaire",
-    content: "Distingo réussit ce que peu de restaurants osent: fusionner l'élégance gastronomique avec le confort d'un pub. Un incontournable de Montréal.",
+    content: "Distingo rÃ©ussit ce que peu de restaurants osent: fusionner l'Ã©lÃ©gance gastronomique avec le confort d'un pub. Un incontournable de Sorel-Tracy.",
     rating: 5
   },
   {
@@ -23,9 +23,9 @@ const testimonials = [
     rating: 5
   },
   {
-    name: "Alexandre Côté",
-    role: "Organisateur d'Événements",
-    content: "Nous avons organisé notre événement corporatif chez Distingo. Le service était impeccable et nos invités étaient enchantés. Hautement recommandé!",
+    name: "Alexandre CÃ´tÃ©",
+    role: "Organisateur d'Ã©vÃ©nements",
+    content: "Nous avons organisÃ© notre Ã©vÃ©nement corporatif chez Distingo. Le service Ã©tait impeccable et nos invitÃ©s Ã©taient enchantÃ©s. Hautement recommandÃ©!",
     rating: 5
   }
 ];
@@ -34,7 +34,7 @@ function StarRating({ rating }: { rating: number }) {
   return (
     <div className="flex gap-1">
       {Array.from({ length: rating }).map((_, i) => (
-        <Star key={i} className="w-5 h-5 fill-accent text-accent" />
+        <Star key={i} className="w-5 h-5 fill-cream text-cream" />
       ))}
     </div>
   );
@@ -55,7 +55,7 @@ function TestimonialCard({ testimonial, index }: { testimonial: typeof testimoni
     >
       {/* Quote Icon */}
       <div className="absolute top-6 right-6 opacity-10 group-hover:opacity-20 transition-opacity duration-500">
-        <Quote className="w-16 h-16 text-accent" />
+        <Quote className="w-16 h-16 text-cream" />
       </div>
 
       {/* Rating */}
@@ -70,8 +70,8 @@ function TestimonialCard({ testimonial, index }: { testimonial: typeof testimoni
 
       {/* Author */}
       <div className="flex items-center gap-4">
-        <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center">
-          <span className="text-accent font-serif text-xl">
+        <div className="w-12 h-12 rounded-full bg-primary/50 flex items-center justify-center border border-white/10">
+          <span className="text-cream font-serif text-xl">
             {testimonial.name.charAt(0)}
           </span>
         </div>
@@ -97,7 +97,7 @@ export default function Testimonials() {
             transition={{ duration: 0.6 }}
             className="eyebrow"
           >
-            Témoignages
+            TÃ©moignages
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -131,7 +131,7 @@ export default function Testimonials() {
           <div className="flex items-center justify-center gap-2">
             <div className="flex">
               {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="w-6 h-6 fill-accent text-accent" />
+                <Star key={i} className="w-6 h-6 fill-cream text-cream" />
               ))}
             </div>
             <span className="text-foreground font-semibold text-xl">5.0</span>
