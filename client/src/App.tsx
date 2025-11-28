@@ -11,6 +11,7 @@ import About from "@/pages/About";
 import Menu from "@/pages/Menu";
 import Gallery from "@/pages/Gallery";
 import Contact from "@/pages/Contact";
+import Events from "@/pages/Events";
 
 function Router() {
   return (
@@ -18,6 +19,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/about" component={About} />
       <Route path="/menu" component={Menu} />
+      <Route path="/events" component={Events} />
       <Route path="/gallery" component={Gallery} />
       <Route path="/contact" component={Contact} />
       <Route component={NotFound} />

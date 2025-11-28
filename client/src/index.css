@@ -33,12 +33,12 @@
 }
 
 :root {
-  /* 
-    Refined Color Palette:
+  /*
+    Sophisticated Restaurant Palette:
     Deep Charcoal: #141414 -> 0 0% 8%
     Warm Cream: #F5F0E8 -> 36 33% 94%
     Forest Green Primary: #3A4B2C -> 93 26% 23%
-    Sage Green Accent: #8B9A7D -> 93 14% 55%
+    Champagne Accent: #E8D5B5 -> 36 45% 82% (high contrast, elegant)
   */
 
   --background: 0 0% 8%;
@@ -60,10 +60,10 @@
 
   /* Muted - For subtle backgrounds */
   --muted: 0 0% 15%;
-  --muted-foreground: 36 20% 75%;
+  --muted-foreground: 36 33% 88%; /* Brighter for better contrast */
 
-  /* Accent - Sage Green (elegant, natural) */
-  --accent: 93 14% 55%;
+  /* Accent - Champagne (vibrant, high contrast, elegant) */
+  --accent: 36 45% 82%;
   --accent-foreground: 0 0% 8%;
 
   --destructive: 0 62% 30%;
@@ -71,7 +71,7 @@
 
   --border: 0 0% 20%;
   --input: 0 0% 18%;
-  --ring: 93 14% 55%;
+  --ring: 36 45% 82%;
 
   --radius: 0.25rem;
 }
@@ -133,15 +133,15 @@
   /* Small / Caption Text */
   .text-caption {
     @apply text-sm tracking-wide uppercase;
-    color: hsl(43 47% 59%);
+    color: hsl(36 45% 82%);
     font-weight: 500;
     letter-spacing: 0.15em;
   }
-  
+
   /* Eyebrow / Label Text */
   .eyebrow {
     @apply text-xs sm:text-sm tracking-[0.2em] uppercase font-sans font-medium mb-4;
-    color: hsl(43 47% 59%);
+    color: hsl(36 45% 82%);
   }
   
   /* Links */
@@ -152,9 +152,9 @@
 
 /* ===== CUSTOM UTILITY CLASSES ===== */
 
-/* Sage green accent text */
+/* Champagne accent text (legacy support for text-gold) */
 .text-gold {
-  color: hsl(93 14% 55%);
+  color: hsl(36 45% 82%);
 }
 
 /* Warm cream text for high contrast */
@@ -169,10 +169,10 @@
   font-weight: 400;
 }
 
-/* Section divider with sage green accent */
+/* Section divider with champagne accent (legacy support for divider-gold) */
 .divider-gold {
   @apply w-24 h-0.5 mx-auto my-8;
-  background: linear-gradient(90deg, transparent, hsl(93 14% 55%), transparent);
+  background: linear-gradient(90deg, transparent, hsl(36 45% 82%), transparent);
 }
 
 /* Card hover effect */
