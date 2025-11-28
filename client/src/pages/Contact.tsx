@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { useToast } from '@/hooks/use-toast';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const formSchema = z.object({
   name: z.string().min(2, "Le nom doit contenir au moins 2 caractères"),
@@ -46,82 +47,114 @@ export default function Contact() {
 
   return (
     <Layout>
-       <div className="bg-primary text-primary-foreground py-20 text-center">
-          <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-6xl font-serif font-bold mb-4">Contactez-nous</h1>
-          <p className="text-lg md:text-xl opacity-80 max-w-2xl mx-auto">
-            Réservez une table ou contactez-nous. Nous avons hâte de vous accueillir.
-          </p>
-          </div>
+      {/* Header */}
+      <div className="bg-primary py-24 md:py-32 text-center">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <p className="eyebrow text-gold mb-4">Réservations</p>
+            <h1 className="text-primary-foreground mb-6">Contactez-nous</h1>
+            <p className="text-xl md:text-2xl text-primary-foreground/80 max-w-2xl mx-auto font-light">
+              Réservez une table ou contactez-nous. Nous avons hâte de vous accueillir.
+            </p>
+          </motion.div>
+        </div>
       </div>
 
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+      <div className="container mx-auto px-4 py-20 md:py-28">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
           {/* Contact Info */}
-          <div className="space-y-12">
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="space-y-12"
+          >
             <div>
-              <h2 className="text-3xl font-serif font-bold mb-6 text-primary">Entrer en Contact</h2>
-              <p className="text-muted-foreground mb-8">
+              <p className="eyebrow">Nous Joindre</p>
+              <h2 className="text-foreground mb-6">
+                Entrer en <span className="elegant-italic text-gold">Contact</span>
+              </h2>
+              <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
                 Des questions sur notre menu, les événements privés ou les restrictions alimentaires ? Appelez-nous ou envoyez-nous un courriel.
               </p>
               
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="bg-secondary/10 p-3 rounded-full">
-                    <MapPin className="w-6 h-6 text-secondary" />
+              <div className="space-y-8">
+                <div className="flex items-start gap-5">
+                  <div className="bg-accent/20 p-4 rounded-full">
+                    <MapPin className="w-6 h-6 text-gold" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg text-primary">Adresse</h3>
-                    <p className="text-muted-foreground">1234 Rue Saint-Denis, Montréal, QC H2X 3K4</p>
+                    <h4 className="text-xl text-foreground mb-1">Adresse</h4>
+                    <p className="text-muted-foreground text-lg">1234 Rue Saint-Denis, Montréal, QC H2X 3K4</p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="bg-secondary/10 p-3 rounded-full">
-                    <Phone className="w-6 h-6 text-secondary" />
+                <div className="flex items-start gap-5">
+                  <div className="bg-accent/20 p-4 rounded-full">
+                    <Phone className="w-6 h-6 text-gold" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg text-primary">Téléphone</h3>
-                    <p className="text-muted-foreground">(514) 555-0123</p>
+                    <h4 className="text-xl text-foreground mb-1">Téléphone</h4>
+                    <p className="text-muted-foreground text-lg">(514) 555-0123</p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="bg-secondary/10 p-3 rounded-full">
-                    <Mail className="w-6 h-6 text-secondary" />
+                <div className="flex items-start gap-5">
+                  <div className="bg-accent/20 p-4 rounded-full">
+                    <Mail className="w-6 h-6 text-gold" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg text-primary">Courriel</h3>
-                    <p className="text-muted-foreground">info@distingo.com</p>
+                    <h4 className="text-xl text-foreground mb-1">Courriel</h4>
+                    <p className="text-muted-foreground text-lg">info@distingo.com</p>
                   </div>
                 </div>
-                 <div className="flex items-start gap-4">
-                  <div className="bg-secondary/10 p-3 rounded-full">
-                    <Clock className="w-6 h-6 text-secondary" />
+                
+                <div className="flex items-start gap-5">
+                  <div className="bg-accent/20 p-4 rounded-full">
+                    <Clock className="w-6 h-6 text-gold" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg text-primary">Heures</h3>
-                    <p className="text-muted-foreground">Lun-Mer: 16h-23h</p>
-                    <p className="text-muted-foreground">Jeu-Ven: 16h-01h</p>
-                    <p className="text-muted-foreground">Sam: 17h-02h</p>
-                    <p className="text-muted-foreground">Dim: 17h-23h</p>
+                    <h4 className="text-xl text-foreground mb-2">Heures d'Ouverture</h4>
+                    <div className="text-muted-foreground text-lg space-y-1">
+                      <p>Lun–Mer: 16h–23h</p>
+                      <p>Jeu–Ven: 16h–01h</p>
+                      <p>Sam: 17h–02h</p>
+                      <p>Dim: 17h–23h</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Map Placeholder */}
-            <div className="w-full h-64 bg-muted rounded-lg overflow-hidden relative group">
-              <div className="absolute inset-0 bg-gray-300 flex items-center justify-center text-muted-foreground">
-                <span className="flex items-center gap-2"><MapPin /> Carte</span>
+            <div className="w-full h-72 bg-card rounded-sm overflow-hidden relative border border-border">
+              <div className="absolute inset-0 bg-muted flex items-center justify-center">
+                <div className="text-center">
+                  <MapPin className="w-10 h-10 text-gold mx-auto mb-3" />
+                  <span className="text-muted-foreground">Carte Google Maps</span>
+                </div>
               </div>
-              {/* Ideally embed a google map iframe here */}
             </div>
-          </div>
+          </motion.div>
 
           {/* Reservation Form */}
-          <div className="bg-card shadow-lg rounded-lg p-8 border border-border">
-            <h2 className="text-3xl font-serif font-bold mb-6 text-primary">Faire une Réservation</h2>
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="bg-card shadow-2xl rounded-sm p-8 md:p-10 border border-border"
+          >
+            <p className="eyebrow text-gold mb-2">Réserver</p>
+            <h2 className="text-foreground mb-8">
+              Faire une <span className="elegant-italic">Réservation</span>
+            </h2>
+            
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -130,22 +163,22 @@ export default function Contact() {
                     name="name"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Nom</FormLabel>
+                        <FormLabel className="text-foreground text-base">Nom</FormLabel>
                         <FormControl>
-                          <Input placeholder="Votre nom" {...field} />
+                          <Input placeholder="Votre nom" className="h-12 text-base" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
                     )}
                   />
-                   <FormField
+                  <FormField
                     control={form.control}
                     name="phone"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Téléphone</FormLabel>
+                        <FormLabel className="text-foreground text-base">Téléphone</FormLabel>
                         <FormControl>
-                          <Input placeholder="(555) 555-5555" {...field} />
+                          <Input placeholder="(555) 555-5555" className="h-12 text-base" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -158,9 +191,9 @@ export default function Contact() {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Courriel</FormLabel>
+                      <FormLabel className="text-foreground text-base">Courriel</FormLabel>
                       <FormControl>
-                        <Input placeholder="votre@email.com" {...field} />
+                        <Input placeholder="votre@email.com" className="h-12 text-base" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -173,22 +206,22 @@ export default function Contact() {
                     name="date"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Date</FormLabel>
+                        <FormLabel className="text-foreground text-base">Date</FormLabel>
                         <FormControl>
-                          <Input type="date" {...field} />
+                          <Input type="date" className="h-12 text-base" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
                     )}
                   />
-                   <FormField
+                  <FormField
                     control={form.control}
                     name="time"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Heure</FormLabel>
+                        <FormLabel className="text-foreground text-base">Heure</FormLabel>
                         <FormControl>
-                          <Input type="time" {...field} />
+                          <Input type="time" className="h-12 text-base" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -201,11 +234,11 @@ export default function Contact() {
                   name="guests"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Invités</FormLabel>
+                      <FormLabel className="text-foreground text-base">Nombre d'Invités</FormLabel>
                       <Select onValueChange={field.onChange} defaultValue={field.value}>
                         <FormControl>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Nombre d'invités" />
+                          <SelectTrigger className="h-12 text-base">
+                            <SelectValue placeholder="Sélectionner" />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
@@ -225,21 +258,21 @@ export default function Contact() {
                   name="notes"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Demandes Spéciales (Optionnel)</FormLabel>
+                      <FormLabel className="text-foreground text-base">Demandes Spéciales <span className="text-muted-foreground">(Optionnel)</span></FormLabel>
                       <FormControl>
-                        <Textarea placeholder="Allergies, occasion spéciale, etc." {...field} />
+                        <Textarea placeholder="Allergies, occasion spéciale, etc." className="min-h-[100px] text-base" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
 
-                <Button type="submit" className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold py-6 text-lg">
+                <Button type="submit" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-medium py-7 text-lg tracking-wide">
                   Demander une Réservation
                 </Button>
               </form>
             </Form>
-          </div>
+          </motion.div>
         </div>
       </div>
     </Layout>

@@ -30,7 +30,7 @@ export default function Header() {
     <header 
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-300 border-b border-transparent",
-        scrolled ? "bg-background/95 backdrop-blur-sm shadow-sm py-2 border-border/50" : "bg-transparent py-4"
+        scrolled ? "bg-background/95 backdrop-blur-md shadow-lg py-3 border-border/30" : "bg-transparent py-5"
       )}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
@@ -39,25 +39,25 @@ export default function Header() {
             <img 
               src={logoImage} 
               alt="Distingo Resto Pub" 
-              className="h-12 md:h-16 w-auto object-contain" 
+              className="h-12 md:h-14 w-auto object-contain" 
             />
           </a>
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => (
             <Link key={link.href} href={link.href}>
               <a className={cn(
-                "text-sm font-medium tracking-wide transition-colors hover:text-secondary uppercase",
-                location === link.href ? "text-secondary" : "text-foreground/80"
+                "text-sm font-medium tracking-[0.1em] transition-colors hover:text-gold uppercase",
+                location === link.href ? "text-gold" : "text-foreground/80"
               )}>
                 {link.label}
               </a>
             </Link>
           ))}
           <Link href="/contact">
-            <Button size="sm" className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold">
+            <Button size="sm" className="bg-accent hover:bg-accent/90 text-accent-foreground font-medium tracking-wide ml-2 px-6">
               Réserver
             </Button>
           </Link>
@@ -65,7 +65,7 @@ export default function Header() {
 
         {/* Mobile Menu Toggle */}
         <button 
-          className="md:hidden text-foreground"
+          className="md:hidden text-foreground p-2"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X size={28} /> : <Menu size={28} />}
@@ -75,13 +75,13 @@ export default function Header() {
       {/* Mobile Nav */}
       {isOpen && (
         <div className="md:hidden absolute top-full left-0 w-full bg-background border-b border-border animate-in slide-in-from-top-5 shadow-xl">
-          <nav className="flex flex-col p-6 gap-4">
+          <nav className="flex flex-col p-8 gap-6">
             {navLinks.map((link) => (
               <Link key={link.href} href={link.href}>
                 <a 
                   className={cn(
-                    "text-lg font-medium transition-colors hover:text-secondary",
-                    location === link.href ? "text-secondary" : "text-foreground"
+                    "text-xl font-serif transition-colors hover:text-gold",
+                    location === link.href ? "text-gold" : "text-foreground"
                   )}
                   onClick={() => setIsOpen(false)}
                 >
@@ -90,7 +90,7 @@ export default function Header() {
               </Link>
             ))}
             <Link href="/contact">
-              <Button className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground">
+              <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground h-12 text-lg font-medium">
                 Réserver
               </Button>
             </Link>

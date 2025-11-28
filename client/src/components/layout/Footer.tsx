@@ -3,76 +3,90 @@ import logoImage from '@assets/5d0e99f4-6e57-4f5e-9918-c71c7cae7098.jfif_1764287
 
 export default function Footer() {
   return (
-    <footer className="bg-primary text-primary-foreground pt-16 pb-8 border-t border-primary-foreground/10">
+    <footer className="bg-primary pt-20 pb-10 border-t border-white/5">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 mb-16">
           {/* Brand & Contact */}
           <div>
-            <div className="mb-6">
+            <div className="mb-8">
               <img 
                 src={logoImage} 
                 alt="Distingo Resto Pub" 
-                className="h-12 w-auto object-contain" 
+                className="h-14 w-auto object-contain" 
               />
             </div>
-            <div className="space-y-4 text-primary-foreground/80">
-              <p className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 mt-1 text-secondary" />
-                <span>1234 Rue Saint-Denis,<br />Montréal, QC H2X 3K4</span>
+            <div className="space-y-5">
+              <p className="flex items-start gap-4 text-primary-foreground/70 hover:text-primary-foreground transition-colors">
+                <MapPin className="w-5 h-5 mt-1 text-gold flex-shrink-0" />
+                <span className="text-lg">1234 Rue Saint-Denis,<br />Montréal, QC H2X 3K4</span>
               </p>
-              <p className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-secondary" />
-                <a href="tel:+15145550123" className="hover:text-white transition-colors">(514) 555-0123</a>
+              <p className="flex items-center gap-4">
+                <Phone className="w-5 h-5 text-gold flex-shrink-0" />
+                <a href="tel:+15145550123" className="text-lg text-primary-foreground/70 hover:text-gold transition-colors">(514) 555-0123</a>
               </p>
-              <p className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-secondary" />
-                <a href="mailto:info@distingo.com" className="hover:text-white transition-colors">info@distingo.com</a>
+              <p className="flex items-center gap-4">
+                <Mail className="w-5 h-5 text-gold flex-shrink-0" />
+                <a href="mailto:info@distingo.com" className="text-lg text-primary-foreground/70 hover:text-gold transition-colors">info@distingo.com</a>
               </p>
             </div>
           </div>
 
           {/* Hours */}
           <div>
-            <h4 className="text-lg font-bold mb-6 border-b border-secondary/30 pb-2 inline-block">Heures d'Ouverture</h4>
-            <ul className="space-y-2 text-primary-foreground/80">
-              <li className="flex justify-between">
-                <span>Lun - Mer</span>
-                <span>16h00 - 23h00</span>
+            <h4 className="text-xl font-serif text-primary-foreground mb-6">Heures d'Ouverture</h4>
+            <ul className="space-y-3 text-lg">
+              <li className="flex justify-between text-primary-foreground/70">
+                <span>Lun – Mer</span>
+                <span>16h – 23h</span>
               </li>
-              <li className="flex justify-between">
-                <span>Jeu - Ven</span>
-                <span>16h00 - 01h00</span>
+              <li className="flex justify-between text-primary-foreground/70">
+                <span>Jeu – Ven</span>
+                <span>16h – 01h</span>
               </li>
-              <li className="flex justify-between text-secondary font-medium">
+              <li className="flex justify-between text-gold font-medium">
                 <span>Samedi</span>
-                <span>17h00 - 02h00</span>
+                <span>17h – 02h</span>
               </li>
-              <li className="flex justify-between">
+              <li className="flex justify-between text-primary-foreground/70">
                 <span>Dimanche</span>
-                <span>17h00 - 23h00</span>
+                <span>17h – 23h</span>
               </li>
             </ul>
           </div>
 
-          {/* Social & Newsletter */}
+          {/* Social */}
           <div>
-            <h4 className="text-lg font-bold mb-6 border-b border-secondary/30 pb-2 inline-block">Suivez-nous</h4>
-            <p className="text-primary-foreground/80 mb-6">
+            <h4 className="text-xl font-serif text-primary-foreground mb-6">Suivez-nous</h4>
+            <p className="text-primary-foreground/70 text-lg mb-8 leading-relaxed">
               Rejoignez notre communauté pour les mises à jour sur les nouveaux menus et événements spéciaux.
             </p>
-            <div className="flex gap-4 mb-8">
-              <a href="#" className="bg-secondary/20 p-3 rounded-full hover:bg-secondary hover:text-secondary-foreground transition-colors">
-                <Facebook size={20} />
+            <div className="flex gap-4">
+              <a 
+                href="#" 
+                className="bg-white/5 p-4 rounded-full hover:bg-gold hover:text-background transition-all duration-300 text-primary-foreground/70"
+                aria-label="Facebook"
+              >
+                <Facebook size={22} />
               </a>
-              <a href="#" className="bg-secondary/20 p-3 rounded-full hover:bg-secondary hover:text-secondary-foreground transition-colors">
-                <Instagram size={20} />
+              <a 
+                href="#" 
+                className="bg-white/5 p-4 rounded-full hover:bg-gold hover:text-background transition-all duration-300 text-primary-foreground/70"
+                aria-label="Instagram"
+              >
+                <Instagram size={22} />
               </a>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-primary-foreground/10 pt-8 text-center text-sm text-primary-foreground/60">
-          <p>&copy; {new Date().getFullYear()} Distingo Resto Pub. Tous droits réservés.</p>
+        {/* Bottom */}
+        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-primary-foreground/50 text-sm">
+            &copy; {new Date().getFullYear()} Distingo Resto Pub. Tous droits réservés.
+          </p>
+          <p className="text-primary-foreground/30 text-sm elegant-italic">
+            Où le charme rencontre l'élégance
+          </p>
         </div>
       </div>
     </footer>
