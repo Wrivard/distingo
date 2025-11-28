@@ -120,7 +120,7 @@ function MenuItemCard({ item, index }: { item: MenuItem; index: number }) {
                   </span>
                 )}
               </div>
-              <span className="text-lg font-serif text-accent font-medium flex-shrink-0">{item.price}</span>
+              <span className="text-xl font-serif text-cream font-semibold flex-shrink-0">{item.price}</span>
             </div>
             <p className="text-sm text-muted-foreground elegant-italic line-clamp-2">{item.description}</p>
           </div>
@@ -148,7 +148,7 @@ function MenuItemCard({ item, index }: { item: MenuItem; index: number }) {
               {item.description}
             </p>
           </div>
-          <div className="text-xl md:text-2xl font-serif text-accent font-medium group-hover:scale-110 transition-transform duration-500">
+          <div className="text-2xl md:text-3xl font-serif text-cream font-semibold group-hover:scale-110 transition-transform duration-500">
             {item.price}
           </div>
         </div>
