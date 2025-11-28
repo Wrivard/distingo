@@ -1,84 +1,40 @@
-import express, { type Request, Response, NextFunction } from "express";
-import { serveStatic } from "../server/static";
+import type { VercelRequest, VercelResponse } from '@vercel/node';
+import fs from 'fs';
+import path from 'path';
 
-const app = express();
-
-app.use(
-  express.json({
-    verify: (req: any, _res, buf) => {
-      req.rawBody = buf;
-    },
-  }),
-);
-
-app.use(express.urlencoded({ extended: false }));
-
-export function log(message: string, source = "express") {
-  const formattedTime = new Date().toLocaleTimeString("en-US", {
-    hour: "numeric",
-    minute: "2-digit",
-    second: "2-digit",
-    hour12: true,
-  });
-
-  console.log(`${formattedTime} [${source}] ${message}`);
-}
-
-app.use((req, res, next) => {
-  const start = Date.now();
-  const path = req.path;
-  let capturedJsonResponse: Record<string, any> | undefined = undefined;
-
-  const originalResJson = res.json;
-  res.json = function (bodyJson, ...args) {
-    capturedJsonResponse = bodyJson;
-    return originalResJson.apply(res, [bodyJson, ...args]);
-  };
-
-  res.on("finish", () => {
-    const duration = Date.now() - start;
-    if (path.startsWith("/api")) {
-      let logLine = `${req.method} ${path} ${res.statusCode} in ${duration}ms`;
-      if (capturedJsonResponse) {
-        logLine += ` :: ${JSON.stringify(capturedJsonResponse)}`;
-      }
-
-      log(logLine);
-    }
-  });
-
-  next();
-});
-
-let isInitialized = false;
-
-async function initializeApp() {
-  if (isInitialized) return app;
-
-  // API routes can be added here in the future
-  // For now, we just serve static files
-
-  app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
-    const status = err.status || err.statusCode || 500;
-    const message = err.message || "Internal Server Error";
-
-    res.status(status).json({ message });
-    console.error(err);
-  });
-
-  // In production (Vercel), serve static files if they exist
+// This function handles all requests that aren't static assets
+// It serves the index.html file for client-side routing
+export default async function handler(req: VercelRequest, res: VercelResponse) {
   try {
-    serveStatic(app);
+    // For API routes (if you add them later)
+    if (req.url?.startsWith('/api/')) {
+      return res.status(404).json({
+        error: 'API endpoint not found',
+        message: 'No API routes are currently configured'
+      });
+    }
+
+    // For all other routes, serve index.html for client-side routing
+    const indexPath = path.join(process.cwd(), 'dist', 'public', 'index.html');
+
+    // Check if index.html exists
+    if (fs.existsSync(indexPath)) {
+      const html = fs.readFileSync(indexPath, 'utf-8');
+      res.setHeader('Content-Type', 'text/html');
+      return res.status(200).send(html);
+    } else {
+      console.error('index.html not found at:', indexPath);
+      return res.status(500).json({
+        error: 'Build files not found',
+        message: 'The application build is missing. Please check build configuration.',
+        path: indexPath
+      });
+    }
   } catch (error) {
-    console.log("Static files not found, skipping static file serving");
+    console.error('Serverless function error:', error);
+    return res.status(500).json({
+      error: 'Internal server error',
+      message: error instanceof Error ? error.message : 'Unknown error'
+    });
   }
-
-  isInitialized = true;
-  return app;
 }
-
-// For Vercel serverless functions
-export default async (req: any, res: any) => {
-  const initializedApp = await initializeApp();
-  return initializedApp(req, res);
-};
