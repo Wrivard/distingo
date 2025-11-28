@@ -62,12 +62,12 @@
   --muted: 0 0% 15%;
   --muted-foreground: 36 33% 88%;
 
-  /* Accent - Light Green for highlights and CTAs */
+  /* Accent - Light Green for backgrounds and borders only */
   --accent: 93 30% 45%;
   --accent-foreground: 36 33% 94%;
 
-  /* Highlight - Brighter green for hover/active states */
-  --highlight: 93 35% 55%;
+  /* Highlight - Warm cream for text highlights */
+  --highlight: 36 33% 94%;
 
   --destructive: 0 62% 30%;
   --destructive-foreground: 36 33% 94%;
@@ -152,15 +152,15 @@
   /* Small / Caption Text */
   .text-caption {
     @apply text-sm sm:text-base tracking-wide uppercase;
-    color: hsl(93 30% 45%);
+    color: hsl(36 33% 94%);
     font-weight: 600;
     letter-spacing: 0.15em;
   }
 
-  /* Eyebrow / Label Text - Light Green */
+  /* Eyebrow / Label Text - White/Cream */
   .eyebrow {
     @apply text-sm sm:text-base tracking-[0.25em] uppercase font-sans font-semibold mb-6;
-    color: hsl(93 30% 45%);
+    color: hsl(36 33% 94%);
   }
   
   /* Links */
@@ -171,9 +171,9 @@
 
 /* ===== CUSTOM UTILITY CLASSES ===== */
 
-/* Light green accent text (legacy support for text-gold) */
+/* White/cream text for accents (legacy support for text-gold) */
 .text-gold {
-  color: hsl(93 30% 45%);
+  color: hsl(36 33% 94%);
 }
 
 /* Warm cream/white text for high contrast */
@@ -181,9 +181,9 @@
   color: hsl(36 33% 94%);
 }
 
-/* Brighter green highlight */
+/* White text highlight */
 .text-highlight {
-  color: hsl(93 35% 55%);
+  color: hsl(0 0% 100%);
 }
 
 /* Italic serif for elegant touches */
@@ -193,10 +193,10 @@
   font-weight: 400;
 }
 
-/* Section divider with light green accent */
+/* Section divider with white/cream */
 .divider-gold {
   @apply w-24 h-0.5 mx-auto my-8;
-  background: linear-gradient(90deg, transparent, hsl(93 30% 45%), transparent);
+  background: linear-gradient(90deg, transparent, hsl(36 33% 94%), transparent);
 }
 
 /* Card hover effect */

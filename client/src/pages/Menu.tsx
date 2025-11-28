@@ -135,7 +135,7 @@ function MenuItemCard({ item, index }: { item: MenuItem; index: number }) {
           
           <div className="flex-1 pr-8 pl-2">
             <div className="flex items-center gap-3 mb-2">
-              <h3 className="text-xl md:text-2xl font-serif text-foreground mb-0 group-hover:text-accent transition-colors duration-500">
+              <h3 className="text-xl md:text-2xl font-serif text-foreground mb-0 group-hover:text-cream transition-colors duration-500">
                 {item.name}
               </h3>
               {item.tag && (

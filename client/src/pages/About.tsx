@@ -268,7 +268,7 @@ export default function About() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
                   <div className="absolute top-4 left-4 bg-accent/20 backdrop-blur-sm p-3 rounded-full border border-accent/30">
-                    <member.icon className="w-5 h-5 text-accent" />
+                    <member.icon className="w-5 h-5 text-foreground" />
                   </div>
                 </div>
                 <div className="p-6">

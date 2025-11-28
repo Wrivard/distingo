@@ -105,7 +105,7 @@ function EventCard({ event, index }: { event: Event; index: number }) {
           </div>
 
           {/* Event info */}
-          <h3 className="text-2xl font-serif text-foreground mb-3 group-hover:text-accent transition-colors">
+          <h3 className="text-2xl font-serif text-foreground mb-3 group-hover:text-cream transition-colors">
             {event.title}
           </h3>
 
@@ -113,7 +113,7 @@ function EventCard({ event, index }: { event: Event; index: number }) {
             {event.description}
           </p>
 
-          <div className="flex items-center text-sm text-accent">
+          <div className="flex items-center text-sm text-foreground">
             <MapPin className="w-4 h-4 mr-2" />
             {event.location}
           </div>
@@ -165,14 +165,14 @@ function MiniCalendar({ events }: { events: Event[] }) {
           onClick={prevMonth}
           className="p-2 hover:bg-accent/10 rounded-md transition-colors"
         >
-          <ChevronLeft className="w-5 h-5 text-accent" />
+          <ChevronLeft className="w-5 h-5 text-foreground" />
         </button>
         <h3 className="text-xl font-serif text-foreground capitalize">{monthName}</h3>
         <button
           onClick={nextMonth}
           className="p-2 hover:bg-accent/10 rounded-md transition-colors"
         >
-          <ChevronRight className="w-5 h-5 text-accent" />
+          <ChevronRight className="w-5 h-5 text-foreground" />
         </button>
       </div>
 

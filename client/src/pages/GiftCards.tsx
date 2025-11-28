@@ -18,7 +18,7 @@ export default function GiftCards() {
         <div className="container mx-auto px-4">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <div className="bg-accent/20 p-6 rounded-full border-2 border-accent/30 inline-block mb-6">
-              <Gift className="w-12 h-12 text-accent" />
+              <Gift className="w-12 h-12 text-foreground" />
             </div>
             <h1 className="text-primary-foreground mb-6">Cartes-Cadeaux</h1>
             <p className="text-xl text-primary-foreground/80 max-w-2xl mx-auto">

@@ -39,7 +39,7 @@ export default function PrivateEvents() {
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-4">
                   <div className="bg-accent/20 p-3 rounded-full">
-                    <item.icon className="w-5 h-5 text-accent" />
+                    <item.icon className="w-5 h-5 text-foreground" />
                   </div>
                   <p className="text-foreground">{item.text}</p>
                 </div>
