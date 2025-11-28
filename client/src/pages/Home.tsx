@@ -66,65 +66,71 @@ export default function Home() {
         </motion.div>
 
         {/* Content */}
-        <motion.div 
-          className="relative z-10 container mx-auto px-4 text-center"
+        <motion.div
+          className="relative z-10 container mx-auto px-4 text-center max-w-5xl"
           style={{ opacity: heroOpacity }}
         >
-          <motion.p 
+          <motion.div
             variants={fadeUp}
             initial="hidden"
             animate="visible"
             custom={0.2}
-            className="eyebrow text-gold mb-6"
+            className="mb-8"
           >
-            Est. 2025 • Montréal
-          </motion.p>
-          
-          <motion.h1 
+            <span className="inline-block px-6 py-2 bg-white/5 backdrop-blur-sm border border-white/20 rounded-full text-cream/90 text-sm tracking-[0.2em] uppercase font-medium">
+              Montréal • Depuis 2025
+            </span>
+          </motion.div>
+
+          <motion.h1
             variants={fadeUp}
             initial="hidden"
             animate="visible"
             custom={0.4}
-            className="text-cream mb-4"
+            className="text-cream mb-6 !text-7xl sm:!text-8xl md:!text-9xl lg:!text-[10rem] xl:!text-[12rem] !leading-[0.85]"
           >
             Distingo
           </motion.h1>
-          
-          <motion.p 
+
+          <motion.div
             variants={fadeUp}
             initial="hidden"
             animate="visible"
             custom={0.5}
-            className="elegant-italic text-4xl sm:text-5xl md:text-6xl text-cream/80 -mt-4 mb-10"
+            className="mb-8"
           >
-            Resto Pub
-          </motion.p>
-          
-          <motion.p 
+            <p className="elegant-italic text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-gold/90 font-light tracking-wide">
+              Resto • Pub • Expérience
+            </p>
+          </motion.div>
+
+          <motion.div
             variants={fadeUp}
             initial="hidden"
             animate="visible"
             custom={0.6}
-            className="text-xl md:text-2xl text-cream/85 max-w-2xl mx-auto mb-12 font-light leading-relaxed"
+            className="max-w-3xl mx-auto mb-12"
           >
-            Où le charme rustique rencontre l'élégance culinaire. Découvrez le mélange parfait entre l'ambiance bistro chaleureuse et la gastronomie haut de gamme.
-          </motion.p>
-          
-          <motion.div 
+            <p className="text-lg md:text-xl lg:text-2xl text-cream/90 font-light leading-relaxed">
+              L'art de recevoir rencontre la gastronomie raffinée dans une atmosphère chaleureuse et authentique
+            </p>
+          </motion.div>
+
+          <motion.div
             variants={fadeUp}
             initial="hidden"
             animate="visible"
             custom={0.8}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="flex flex-col sm:flex-row gap-5 justify-center items-center"
           >
-            <Link href="/menu">
-              <Button size="lg" className="bg-secondary hover:bg-secondary/90 text-secondary-foreground min-w-[200px] text-lg h-14 font-medium tracking-wide transition-all duration-300 hover:scale-[1.02]">
-                Voir le Menu
+            <Link href="/contact">
+              <Button size="lg" className="bg-gold hover:bg-gold/90 text-background min-w-[220px] text-base h-14 font-semibold tracking-wide transition-all duration-300 hover:scale-[1.05] shadow-xl">
+                Réserver une Table
               </Button>
             </Link>
-            <Link href="/contact">
-              <Button size="lg" variant="outline" className="bg-transparent border-2 border-cream/80 text-cream hover:bg-cream hover:text-background min-w-[200px] text-lg h-14 font-medium tracking-wide transition-all duration-300 hover:scale-[1.02]">
-                Réserver
+            <Link href="/menu">
+              <Button size="lg" variant="outline" className="bg-white/5 backdrop-blur-sm border-2 border-white/40 text-cream hover:bg-white hover:text-background min-w-[220px] text-base h-14 font-semibold tracking-wide transition-all duration-300 hover:scale-[1.05]">
+                Découvrir le Menu
               </Button>
             </Link>
           </motion.div>
@@ -238,57 +244,104 @@ export default function Home() {
       </section>
 
       {/* Features / Highlights */}
-      <section className="py-24 md:py-32 bg-primary overflow-hidden">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <motion.p 
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
+      <section className="py-28 md:py-36 bg-primary overflow-hidden relative">
+        {/* Background decoration */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-transparent to-background/20 pointer-events-none" />
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-20">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="eyebrow text-gold"
+              className="mb-6"
             >
-              L'Expérience Distingo
-            </motion.p>
+              <span className="inline-block px-5 py-2 bg-gold/10 border border-gold/20 rounded-full text-gold text-xs tracking-[0.25em] uppercase font-semibold">
+                L'Expérience Distingo
+              </span>
+            </motion.div>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="text-primary-foreground !text-4xl sm:!text-5xl md:!text-6xl lg:!text-6xl xl:!text-7xl"
+              className="text-primary-foreground !text-4xl sm:!text-5xl md:!text-6xl lg:!text-7xl xl:!text-8xl !leading-[1.1] mb-6"
             >
-              Ce Qui Nous <span className="elegant-italic">Distingue</span>
+              Ce Qui Nous <span className="elegant-italic text-gold">Distingue</span>
             </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-primary-foreground/70 text-lg md:text-xl max-w-3xl mx-auto"
+            >
+              Trois piliers qui font de chaque visite une expérience mémorable
+            </motion.p>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
             {[
-              { icon: UtensilsCrossed, title: "Cuisine Gastronomique", desc: "De nos frites signature à nos burgers artisanaux, chaque plat est élaboré avec passion et précision.", link: "/menu", linkText: "Voir Menu" },
-              { icon: Wine, title: "Boissons Sélectionnées", desc: "Explorez notre vaste carte des vins, nos bières artisanales locales et nos cocktails signature.", link: "/menu", linkText: "Carte des Boissons" },
-              { icon: Music, title: "Atmosphère Chaleureuse", desc: "Un éclairage chaleureux, des sièges confortables et une ambiance soignée créent le cadre idéal.", link: "/gallery", linkText: "Voir Galerie" },
+              {
+                icon: UtensilsCrossed,
+                title: "Cuisine Gastronomique",
+                desc: "De nos frites signature à nos burgers artisanaux, chaque plat est élaboré avec passion et précision.",
+                link: "/menu",
+                linkText: "Voir Menu",
+                gradient: "from-gold/5 to-gold/0"
+              },
+              {
+                icon: Wine,
+                title: "Boissons Sélectionnées",
+                desc: "Explorez notre vaste carte des vins, nos bières artisanales locales et nos cocktails signature.",
+                link: "/menu",
+                linkText: "Carte des Boissons",
+                gradient: "from-gold/5 to-gold/0"
+              },
+              {
+                icon: Music,
+                title: "Atmosphère Chaleureuse",
+                desc: "Un éclairage chaleureux, des sièges confortables et une ambiance soignée créent le cadre idéal.",
+                link: "/gallery",
+                linkText: "Voir Galerie",
+                gradient: "from-gold/5 to-gold/0"
+              },
             ].map((item, i) => (
-              <motion.div 
+              <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.15 }}
-                className="p-8 lg:p-10 border border-white/10 rounded-sm hover:bg-white/5 transition-all duration-500 group"
+                transition={{ duration: 0.7, delay: i * 0.15, ease: premiumEase }}
+                whileHover={{ y: -8 }}
+                className={`relative p-10 lg:p-12 border border-white/10 rounded-lg bg-gradient-to-br ${item.gradient} backdrop-blur-sm hover:border-gold/30 transition-all duration-500 group overflow-hidden`}
               >
-                <motion.div 
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.3 }}
-                  className="w-14 h-14 bg-accent/20 rounded-full flex items-center justify-center mb-8 group-hover:bg-accent transition-colors duration-500"
+                {/* Decorative corner accent */}
+                <div className="absolute top-0 right-0 w-24 h-24 bg-gold/5 rounded-bl-[100px] transform translate-x-8 -translate-y-8 group-hover:scale-150 transition-transform duration-700" />
+
+                {/* Icon */}
+                <motion.div
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ duration: 0.3, ease: premiumEase }}
+                  className="relative w-16 h-16 bg-gradient-to-br from-gold/20 to-gold/5 rounded-2xl flex items-center justify-center mb-8 group-hover:from-gold/30 group-hover:to-gold/10 transition-all duration-500"
                 >
-                  <item.icon className="w-7 h-7 text-accent group-hover:text-accent-foreground transition-colors duration-500" />
+                  <item.icon className="w-8 h-8 text-gold" strokeWidth={1.5} />
                 </motion.div>
-                <h3 className="text-2xl lg:text-3xl text-primary-foreground mb-4">{item.title}</h3>
-                <p className="text-primary-foreground/70 text-lg leading-relaxed mb-8">
+
+                {/* Content */}
+                <h3 className="text-2xl lg:text-3xl text-primary-foreground mb-5 font-serif font-semibold">
+                  {item.title}
+                </h3>
+                <p className="text-primary-foreground/70 text-base lg:text-lg leading-relaxed mb-8">
                   {item.desc}
                 </p>
+
+                {/* Link */}
                 <Link href={item.link}>
-                  <a className="text-accent uppercase tracking-[0.15em] text-sm font-semibold hover:text-cream transition-colors duration-300">
-                    {item.linkText} →
+                  <a className="inline-flex items-center gap-2 text-gold uppercase tracking-[0.15em] text-xs font-bold hover:text-cream hover:gap-3 transition-all duration-300 group/link">
+                    {item.linkText}
+                    <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform duration-300" />
                   </a>
                 </Link>
               </motion.div>
