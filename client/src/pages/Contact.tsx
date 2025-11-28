@@ -180,19 +180,48 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Map Placeholder */}
-            <motion.div 
+            {/* Map */}
+            <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: premiumEase }}
-              className="w-full h-72 bg-card rounded-sm overflow-hidden relative border border-border"
+              className="w-full h-96 bg-card rounded-sm overflow-hidden relative border border-border"
             >
-              <div className="absolute inset-0 bg-muted flex items-center justify-center">
-                <div className="text-center">
-                  <MapPin className="w-10 h-10 text-gold mx-auto mb-3" />
-                  <span className="text-muted-foreground">Carte Google Maps</span>
-                </div>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2795.888876177849!2d-73.56968668441988!3d45.51566267910164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc91a41e7a4fb8d%3A0x71ab3539d2b43793!2sRue%20Saint-Denis%2C%20Montr%C3%A9al%2C%20QC!5e0!3m2!1sen!2sca!4v1635789012345!5m2!1sen!2sca"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Distingo Restaurant Location"
+              />
+            </motion.div>
+
+            {/* Parking & Transit */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+              className="bg-card/50 border border-border rounded-sm p-6"
+            >
+              <h4 className="text-lg font-serif text-foreground mb-4">Accès & Stationnement</h4>
+              <div className="space-y-3 text-muted-foreground">
+                <p className="flex items-start gap-2">
+                  <span className="text-gold font-semibold">Metro:</span>
+                  <span>Berri-UQAM (5 min à pied)</span>
+                </p>
+                <p className="flex items-start gap-2">
+                  <span className="text-gold font-semibold">Stationnement:</span>
+                  <span>Stationnement public disponible sur Rue Sainte-Catherine</span>
+                </p>
+                <p className="flex items-start gap-2">
+                  <span className="text-gold font-semibold">Autobus:</span>
+                  <span>Lignes 15, 30, 55 (arrêt à 2 min)</span>
+                </p>
               </div>
             </motion.div>
           </motion.div>
