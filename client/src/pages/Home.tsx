@@ -184,12 +184,12 @@ export default function Home() {
                 Notre Philosophie
               </motion.p>
               
-              <motion.h2 
+              <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                className="text-foreground"
+                className="text-foreground !text-3xl sm:!text-4xl md:!text-5xl lg:!text-5xl xl:!text-6xl"
               >
                 Une Approche Moderne du{' '}
                 <span className="elegant-italic text-gold">Confort Classique</span>
@@ -246,12 +246,12 @@ export default function Home() {
             >
               L'Expérience Distingo
             </motion.p>
-            <motion.h2 
+            <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="text-primary-foreground"
+              className="text-primary-foreground !text-4xl sm:!text-5xl md:!text-6xl lg:!text-6xl xl:!text-7xl"
             >
               Ce Qui Nous <span className="elegant-italic">Distingue</span>
             </motion.h2>
@@ -324,12 +324,12 @@ export default function Home() {
             >
               Réservations
             </motion.p>
-            <motion.h2 
+            <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-cream mb-10"
+              className="text-cream mb-10 !text-4xl sm:!text-5xl md:!text-6xl lg:!text-6xl xl:!text-7xl"
             >
               Goûtez à la <span className="elegant-italic">Distinction</span>
             </motion.h2>
